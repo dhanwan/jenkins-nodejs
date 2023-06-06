@@ -31,7 +31,7 @@ on:
     branches: [ "main" ]
 
 env:
-  AWS_REGION: ap-south-1                  # set this to your preferred AWS region, e.g. us-west-1
+  AWS_REGION: ap-south-1              # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: dhr70/node-app           # set this to your Amazon ECR repository name
   ECS_SERVICE: app1                 # set this to your Amazon ECS service name
   ECS_CLUSTER: nginx-test-with-nodejs                # set this to your Amazon ECS cluster name
@@ -55,7 +55,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v2
+      uses: aws-actions/configure-aws-credentials@v1
       with:
         # role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
         role-to-assume: arn:aws:iam::260274566795:role/GitHubActionEcsFullPermissionRole
