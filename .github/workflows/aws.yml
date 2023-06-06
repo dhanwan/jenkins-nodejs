@@ -41,7 +41,8 @@ env:
                                                # containerDefinitions section of your task definition
 
 permissions:
-  contents: read
+  id-token: write # This is required for requesting the JWT
+  contents: read 
 
 jobs:
   deploy:
@@ -58,6 +59,7 @@ jobs:
       with:
         # role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
         role-to-assume: arn:aws:iam::260274566795:role/GitHubActionEcsFullPermissionRole
+        
         role-session-name: Github
         aws-region: ${{ env.AWS_REGION }}
 
